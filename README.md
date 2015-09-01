@@ -1,4 +1,6 @@
 # vBulletin-Syntax-Highlighter
+[Available on the Chrome App Store here](https://chrome.google.com/webstore/detail/syntax-highlighter-for-ex/lfepfbglmpkdfbjmbonacjapndgmjdoe)
+---
 Very simple Chrome Extension that syntax highlights VBA code on vBulletin Sites
 
 It adds bbcode tags to code snippets in VB6/VBA, attempts to recognise:
