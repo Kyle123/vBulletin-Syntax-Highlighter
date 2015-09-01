@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Syntax Highlighter for Excel Forums",
+  "short_name": "Syntax Highlighter EF/MrE",
+  "description": "Adds Syntax highlighting for MrExcel and ExcelForum",
+  "version": "1.0.0.0",
+  "options_page": "options/options.html",
+  "permissions": ["storage"],
+  "icons": {
+    "16": "assets/icon_16.png",
+    "128": "assets/icon_128.png"
+  },
+  "browser_action": {
+    "name": "Manipulate DOM"
+  },
+  "content_scripts" : [{
+    "js": ["background.js"],
+    "matches": [ "*://www.excelforum.com/*", "*://www.mrexcel.com/*"]
+  }]
+}
