@@ -5,6 +5,7 @@
   "description": "Adds Syntax highlighting for MrExcel and ExcelForum",
   "version": "1.1.0.0",
   "options_page": "options/options.html",
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "permissions": ["storage"],
   "icons": {
     "16": "assets/icon_16.png",
@@ -14,7 +15,8 @@
     "name": "Manipulate DOM"
   },
   "content_scripts" : [{
-    "js": ["background.js"],
+    "js": ["assets/plugins/shCore.js","assets/plugins/shLegacy.js","assets/plugins/shBrushVb.js","background.js"],
+    "css": ["assets/plugins/shCoreDefault.css"],
     "matches": [ "*://www.excelforum.com/*", "*://www.mrexcel.com/*","*://www.excelfox.com/*","*://www.ozgrid.com/*"]
   }]
 }

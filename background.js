@@ -37,6 +37,27 @@ var colours = (function () {
 })();
 
 
+(function() {
+  if(typeof(SyntaxHighlighter)!="undefined") {
+    chrome.storage.sync.get("highlighting", function(h) {
+       if(!chrome.runtime.error) {
+         if(h.highlighting === undefined || h.highlighting.on) {
+         Array.prototype.slice.call(document.querySelectorAll("pre"),0).forEach(function(pre){
+            if(pre.id != "preview") {
+              pre.innerHTML = pre.innerText; pre.className = "brush: vb;";
+            } else {
+              pre.className = ""
+            }
+          });
+          SyntaxHighlighter.highlight();
+         }
+       }
+    });
+
+  }
+})()
+
+
 var colourTag = {
   open: function(colour) {
     return "[color=" + colour + "]";

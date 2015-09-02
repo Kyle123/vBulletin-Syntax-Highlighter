@@ -35,6 +35,8 @@ var app = (function(){
 	
 	var init = (function() {
 		
+		
+		
 		var outputSelect = [];
 		var selects = Array.prototype.slice.call(document.querySelectorAll(".colour-box"),0);
 		//Add colours to selects
@@ -54,6 +56,32 @@ var app = (function(){
 			}, function() {
 				alert("Colours Saved!");
 			});
+		});
+
+		document.querySelector("#SavePersonalHighlighting").addEventListener("click", function(e) {	
+			var val = document.personalHighlighting.optionsPH.value === "on" ? true : false;
+			chrome.storage.sync.set({
+				highlighting : {
+					on : val
+				}
+			}, function() {
+				alert("Highlighting Saved!");
+			});
+		});
+		
+		chrome.storage.sync.get("highlighting", function(h) {
+			if ( !chrome.runtime.error ) {
+				if( h.highlighting !== undefined ) {
+						document.personalHighlighting.optionsPH.value = h.highlighting.on ? "on" : "off";
+				} else {
+					var highlighting = {
+						on : true
+					}
+					chrome.storage.sync.set({highlighting:highlighting}, function(c) {});
+				}
+			} else {
+				console.log(chrome.runtime.error);
+			}			
 		});
 		
 		chrome.storage.sync.get("colours", function(c) {
