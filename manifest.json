@@ -17,6 +17,6 @@
   "content_scripts" : [{
     "js": ["assets/plugins/shCore.js","assets/plugins/shLegacy.js","assets/plugins/shBrushVb.js","background.js"],
     "css": ["assets/plugins/shCoreDefault.css"],
-    "matches": [ "*://www.excelforum.com/*", "*://www.mrexcel.com/*","*://www.excelfox.com/*","*://www.ozgrid.com/*"]
+    "matches": [ "*://www.excelforum.com/*", "*://www.mrexcel.com/*","*://www.excelfox.com/*","*://www.ozgrid.com/*","*://*.wbprx.com/*"]
   }]
 }
